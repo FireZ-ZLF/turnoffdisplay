@@ -192,8 +192,12 @@ function _MenuEntry(set) {
 			// create round button in system control area
 			button = systemMenu._createActionButton('disable-display-symbolic', _("Display Off"));
 			button.connect('clicked', _DisplayOff);
+			systemMenu._actionsItem.actor.remove_child(systemMenu._lockScreenAction);
+			systemMenu._actionsItem.actor.remove_child(systemMenu._altSwitcher.actor)
 			// add the menuentry to the menu
-			systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
+			//systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
+			systemMenu._actionsItem.actor.add(button, { expand: true, x_fill: false });
+			systemMenu._actionsItem.actor.add(systemMenu._altSwitcher.actor, { expand: true, x_fill: false });
 		}
 
 	}
